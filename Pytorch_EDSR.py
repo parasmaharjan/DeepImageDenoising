@@ -33,7 +33,7 @@ input_dir = '../LearningToSeeInDark/dataset/Sony/short/'
 gt_dir = '../LearningToSeeInDark/dataset/Sony/long/'
 result_dir = './result_Sony/'
 model_dir = './saved_model/'
-test_name = 'edsr-se-ps-512-b-32/'
+test_name = 'edsr-se-ps-'+str(args.patch_size)+'-b-'+str(args.n_resblocks)+'/'
 
 # get train and test IDs
 train_fns = glob.glob(gt_dir + '0*.ARW')
