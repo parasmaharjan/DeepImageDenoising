@@ -29,8 +29,8 @@ parser.add_argument('--o_colors', type=int, default=3,
 args = parser.parse_args()
 
 
-input_dir = '../LearningToSeeInDark/dataset/Sony/short/'
-gt_dir = '../LearningToSeeInDark/dataset/Sony/long/'
+input_dir = './gdata1/lili/paras/Sony/short/'
+gt_dir = './gdata1/lili/paras/Sony/long/'
 result_dir = './result_Sony/'
 model_dir = './saved_model/'
 test_name = 'edsr-se-ps-'+str(args.patch_size)+'-b-'+str(args.n_resblocks)+'/'

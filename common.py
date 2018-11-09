@@ -84,9 +84,9 @@ class Upsampler(nn.Sequential):
                     m.append(nn.BatchNorm2d(n_feats))
 
                 if act == 'relu':
-                    m.append(nn.ReLU(0.2, inplace=True))
+                    m.append(nn.ReLU())
                 elif act == 'prelu':
-                    m.append(nn.PReLU(0.2, inplace=True))
+                    m.append(nn.PReLU())
                 elif act == 'lrelu':
                     m.append(nn.LeakyReLU(0.2, inplace=True))
         else:
