@@ -10,7 +10,7 @@ class EDSR(nn.Module):
         kernel_size = 3
         scale = args.scale
         act = nn.LeakyReLU(0.2, inplace=True)
-
+        # act = nn.ReLU(True)
         # define head module
         m_head = [conv(args.n_colors, n_feats, kernel_size)]
 
