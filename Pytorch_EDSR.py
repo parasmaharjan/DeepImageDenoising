@@ -20,7 +20,7 @@ parser.add_argument('--res_scale', type=float, default=1,
                     help='residual scaling')
 parser.add_argument('--scale', type=str, default=2,
                     help='super resolution scale')
-parser.add_argument('--patch_size', type=int, default=512,
+parser.add_argument('--patch_size', type=int, default=256,
                     help='output patch size')
 parser.add_argument('--n_colors', type=int, default=4,
                     help='number of input color channels to use')
@@ -29,11 +29,11 @@ parser.add_argument('--o_colors', type=int, default=3,
 args = parser.parse_args()
 
 
-input_dir = './gdata1/lili/paras/Sony/short/'
-gt_dir = './gdata1/lili/paras/Sony/long/'
+input_dir = '../dataset/Sony/short/'
+gt_dir = '../dataset/Sony/long/'
 result_dir = './result_Sony/'
 model_dir = './saved_model/'
-test_name = 'edsr-se-ps-'+str(args.patch_size)+'-b-'+str(args.n_resblocks)+'/'
+test_name = 'edsr-lerelu-ps-'+str(args.patch_size)+'-b-'+str(args.n_resblocks)+'/'
 
 # get train and test IDs
 train_fns = glob.glob(gt_dir + '0*.ARW')
@@ -168,5 +168,5 @@ for epoch in range(lastepoch, 4001):
             #temp = np.concatenate((gt_patch[0, :, :, :], output[0, :, :, :]), axis=1)
             #scipy.misc.toimage(temp * 255, high=255, low=0, cmin=0, cmax=255).save(
             #    result_dir + '%04d/%05d_00_train_%d.jpg' % (epoch, train_id, ratio))
-            torch.save(model.state_dict(), model_dir + test_name + 'checkpoint_sony_e%04d.pth' % epoch)
+            torch.save(model.state_dict(), model_dir + test_name + 'edsr_sony_e%04d.pth' % epoch)
 
